@@ -1,14 +1,31 @@
-const BookItem = ({title, author, rating, pageCount, imageUrl, available, summary}) => {
+import { Badge, Card, Button } from "react-bootstrap";
+
+const BookItem = ({title, author, rating, pageCount, imageUrl, available }) => {
     return (
-        <div>
-            <h2>{title}</h2>
-            <h3>{author}</h3>
-            <div>{summary}</div>
-            <img src={imageUrl} referrerPolicy="no-referrer"/>
-            <div>{rating} estrellas</div>
-            <p>{pageCount} páginas</p>
-            <p>{available ? "Disponible" : "Reservado"}</p>
-        </div>
+        <Card style={{ width: "22rem" }} className="mx-3">
+            <Card.Img
+                height = {400}
+                variant="top"
+                src={imageUrl !== "" ? imageUrl : "https://bit.ly/47Nylzk"}
+                referrerPolicy="no-referrer"
+            />
+            <Card.Body>
+                <div className="mb-2">
+                    {available ?
+                        <Badge bg="success">Disponible</Badge>
+                        :
+                        <Badge bg="danger">Reservado</Badge>    
+                    }
+                </div>
+                <Card.Title>{title}</Card.Title>
+                <Card.Subtitle>{author}</Card.Subtitle>
+                <div>{rating} estrella {rating > 1 ? "s" : ""} </div>
+                <p>{pageCount} páginas</p>
+                <Button>
+                    Actualizar título
+                </Button>
+            </Card.Body>
+        </Card>
     )
 }
 

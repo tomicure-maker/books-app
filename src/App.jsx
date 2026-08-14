@@ -1,6 +1,6 @@
 //import Dashboard from "./pages/Dashboard";
 
-import BookItem from "./components/bookitem/Bookitem"
+import Books from "./components/books/Books";
 
 function App() {
   const books = [
@@ -58,39 +58,7 @@ function App() {
   return (
     <div>
       <h2>Book Champions App</h2>
-      <p>quiero leer</p>
-      <BookItem
-        title={books[0].title}
-        author={books[0].author}
-        summary={books[0].summary}
-        rating={books[0].rating}
-        pageCount={books[0].pageCount}
-        imageUrl={books[0].imageUrl}
-        available={books[0].available}/>
-      <BookItem
-        title={books[1].title}
-        author={books[1].author}
-        summary={books[1].summary}
-        rating={books[1].rating}
-        pageCount={books[1].pageCount}
-        imageUrl={books[1].imageUrl}
-        available={books[1].available}/>
-      <BookItem
-        title={books[2].title}
-        author={books[2].author}
-        summary={books[2].summary}
-        rating={books[2].rating}
-        pageCount={books[2].pageCount}
-        imageUrl={books[2].imageUrl}
-        available={books[2].available}/>
-      <BookItem
-        title={books[3].title}
-        author={books[3].author}
-        summary={books[3].summary}
-        rating={books[3].rating}
-        pageCount={books[3].pageCount}
-        imageUrl={books[3].imageUrl}
-        available={books[3].available}/>
+        <Books books={books}/>
     </div>
   );
 }
