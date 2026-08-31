@@ -1,6 +1,5 @@
-//import Dashboard from "./pages/Dashboard";
-
 import Books from "./components/books/Books";
+import NewBook from "./components/NewBook/NewBook";
 
 function App() {
   const books = [
@@ -53,12 +52,19 @@ function App() {
         "En un mundo gobernado por un régimen totalitario, un hombre lucha contra la vigilancia constante y la manipulación de la verdad.",
     },
   ];
+  const handleBookAdded = () =>{
+    const bookData = {
+      ...bookData,
+      id:Math.random()  
+    }
 
-
+    console.log(bookData);
+  }
   return (
-    <div>
+    <div className = "d-flex flex-column align-items-center">
       <h2>Book Champions App</h2>
-        <Books books={books}/>
+      <NewBook onBookAdded={handleBookAdded}/>
+      <Books books={books}/>
     </div>
   );
 }
