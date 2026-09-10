@@ -1,9 +1,20 @@
 import { Badge, Card, Button } from "react-bootstrap";
-
-const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSelectBook }) => {
+import { Navigate } from "react-router";
+const BookItem = ({id, title, author, rating, pageCount, imageUrl, available, summary }) => {
 
     const handleClick = () => {
-        onSelectBook(title);
+        Navigate(`library/${id}`, {
+            state: {
+                book:{
+                    title,
+                    author,
+                    pageCount,
+                    summary,
+                    imageUrl,
+                    available,
+                },
+            },
+        })
     }
 
     return (
@@ -28,6 +39,9 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSel
                 <p>{pageCount} páginas</p>
                 <Button onClick = {handleClick}>
                     Seleccionar libro
+                </Button>
+                <Button variant="danger">
+                    Eliminar
                 </Button>
             </Card.Body>
         </Card>

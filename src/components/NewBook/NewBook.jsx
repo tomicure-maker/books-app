@@ -1,4 +1,6 @@
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
+import { useState } from "react";
+import { Navigate } from "react-router";
 
 const NewBook = ({onBookAdded}) => {
 
@@ -26,6 +28,9 @@ const NewBook = ({onBookAdded}) => {
     }
     const handleChangeAvailable = (e) => {
       setAvailable(e.target.checked);
+    }
+    const handleBack = ()=>{
+        Navigate("/library", {replace:true})
     }
 
     const handleAddBook = (e) => {
@@ -130,6 +135,9 @@ const NewBook = ({onBookAdded}) => {
                             />
                             <Button variant="primary" type="submit">
                                 Agregar lectura
+                            </Button>
+                            <Button variant="secondary" type="button" onClick={handleBack}>
+                                Volver
                             </Button>
                         </Col>
                     </Row>
